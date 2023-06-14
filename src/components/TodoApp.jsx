@@ -1,10 +1,26 @@
-import TodosLogic from './Todoslogic';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './Navbar';
 
-const TodoApp = () => (
-  <div className='wrapper'>
-    <div className='todos'>
-      <TodosLogic />
+import Aboutus from './Aboutus';
+import Contact from './Contactus';
+import Home from './Home';
+
+function TodoApp() {
+  return (
+    <div className="app">
+      <Router>
+        <Navbar />
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            
+            <Route path="/Aboutus" element={<Aboutus />} />
+            <Route path="/Contact" element={<Contact />} />
+          </Routes>
+        </div>
+      </Router>
     </div>
-  </div>
-);
+  );
+}
+
 export default TodoApp;
